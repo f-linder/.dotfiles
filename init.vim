@@ -25,7 +25,7 @@ set encoding=UTF-8
 
 call plug#end()
 
-:colorscheme molokai
+:colorscheme meta5
 
 "----------------NERDTREE-----------------
 	let g:NERDTreeDirArrowExpandable="+"
@@ -34,7 +34,7 @@ call plug#end()
 
 "------------------------STATUS BAR---------------
 	set statusline=2
-	let g:airline_theme='term' 
+	let g:airline_theme='alduin' 
 	let g:airline#extensions#whitespace#enabled = 0
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline_powerline_fonts = 1
