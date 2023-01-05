@@ -25,7 +25,7 @@ set encoding=UTF-8
 
 call plug#end()
 
-:colorscheme molokai
+:colorscheme meta5
 
 "----------------NERDTREE-----------------
 	let g:NERDTreeDirArrowExpandable="+"
@@ -34,7 +34,7 @@ call plug#end()
 
 "------------------------STATUS BAR---------------
 	set statusline=2
-	let g:airline_theme='term' 
+	let g:airline_theme='alduin' 
 	let g:airline#extensions#whitespace#enabled = 0
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline_powerline_fonts = 1
@@ -44,11 +44,24 @@ call plug#end()
 	nmap <F8> :TagbarToggle<CR>
 
 "---------------Conquer of Completion-------------- 
+	set updatetime=300
+	set sigcolumn=yes
 	inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
 	" map ctrl + j and ctrl + k to traverse up and down the coc completion list
 	inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
 	inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
-
+	
+"-------------- PEAR TREE -------------
+	let g:pear_tree_pairs = {
+		    \ '(': {'closer': ')'},
+		    \ '[': {'closer': ']'},
+		    \ '{': {'closer': '}'},
+		    \ "'": {'closer': "'"},
+		    \ "<": {'closer': ">"},
+		    \ '"': {'closer': '"'}
+          	    \ }
+	inoremap ä <Plug>(PearTreeJump)
+	    
 " -----------MAPPINGS---------------
 	imap ö <ESC>
 	" moving between splits
