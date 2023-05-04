@@ -6,6 +6,7 @@ end
 
 -- configure treesitter
 treesitter.setup({
+    ensure_isntalled = { "help", "rust", "cpp", "lua" },
     -- enable syntax highlighting
     highlight = {
         enable = true,
