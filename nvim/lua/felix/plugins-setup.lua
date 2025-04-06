@@ -11,6 +11,20 @@ local ensure_packer = function()
 end
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
+
+-- highlight on yank/copy
+local autocmd = vim.api.nvim_create_autocmd
+autocmd('TextYankPost', {
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 100,
+        })
+    end,
+})
+
+
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
 vim.cmd([[ 
@@ -37,6 +51,9 @@ return packer.startup(function(use)
     use("folke/tokyonight.nvim")
     use{"catppuccin/nvim", as = "catppuccin"}
     use("nyoom-engineering/oxocarbon.nvim")
+    use("rose-pine/neovim")
+    use("water-sucks/darkrose.nvim")
+    use("doki-theme/doki-theme-vim")
 
     use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 

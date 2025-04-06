@@ -1,36 +1,36 @@
-local opt = vim.opt -- for conciesness
+local opt = vim.opt -- for conciseness
 
---line numbers
+-- line numbers
 opt.relativenumber = true
 opt.number = true
 
 -- tabs + indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.smartindent = true
 opt.expandtab = true
-opt.autoindent = true
 
 -- line wrapping
 opt.wrap = false
 
--- search settings
-opt.ignorecase = true
-opt.smartcase = true
+-- swapfile
+opt.swapfile = false
+opt.backup = false
+opt.undofile = true
+
+-- search
+opt.hlsearch = false
+opt.incsearch = true
 
 -- appearance
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
-
--- backspace
-opt.backspace = "indent,eol,start"
+opt.termguicolors = false
+opt.signcolumn = "no"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
--- split windows
-opt.splitright = true
-opt.splitbelow = true
+opt.scrolloff = 8
+opt.cursorline = true
 
-opt.iskeyword:append("-")
-
+opt.updatetime = 100
