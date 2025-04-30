@@ -1,0 +1,19 @@
+[window] 
+startup_mode = "Maximized"
+
+[font]
+normal.family = "DroidSansM Nerd Font"
+size = 12
+
+[terminal]
+osc52 = "CopyPaste"
+
+[keyboard]
+bindings = [
+    { key = "C", mods = "Control", action = "Copy" },
+    { key = "V", mods = "Control", action = "Paste" },
+    { key = "V", mods = "Control|Shift", action = "Paste" },
+    { key = "W", mods = "Control", action = "Quit" },
+    { key = "u", mods = "Control", action = "ScrollHalfPageUp" },
+    { key = "d", mods = "Control", action = "ScrollHalfPageDown" },
+]
