@@ -1,21 +1,10 @@
 local lsp = require("lsp-zero")
-lsp.preset("recommended")
 
 local cmp = require("cmp")
 local keymap = vim.keymap -- for conciseness
 
 
 vim.opt.completeopt = "menu,menuone,preview,noinsert"
-
--- icons
-lsp.set_preferences({
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I',
-    }
-})
 
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}

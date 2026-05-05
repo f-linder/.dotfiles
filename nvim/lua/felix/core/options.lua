@@ -20,7 +20,7 @@ opt.backup = false
 opt.undofile = true
 
 -- search
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 
 -- appearance

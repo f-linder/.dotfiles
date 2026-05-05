@@ -6,11 +6,19 @@ end
 
 -- configure treesitter
 treesitter.setup({
-    ensure_isntalled = { "help", "rust", "cpp", "lua" },
-    -- enable syntax highlighting
-    highlight = {
-        enable = true,
+    ensure_isntalled = { 
+        "help", 
+        "lua", 
+        "python", 
+        "go", 
+        "rust", 
+        "cpp", 
+        "c", 
+        "yaml", 
+        "json", 
+        "dockerfile", 
     },
-    -- enable indentation
+    sync_install = false,
+    highlight = { enable = true },
     indent = { enable = true },
 })

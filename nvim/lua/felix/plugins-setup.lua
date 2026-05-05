@@ -95,12 +95,7 @@ return packer.startup(function(use)
     }
 
     -- treesitter
-    use {"nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-    }
+    use({ "nvim-treesitter/nvim-treesitter", tag = "v0.10.0", lazy = false, build = ":TSUpdate" })
 
     -- undotree
     use("mbbill/undotree")
