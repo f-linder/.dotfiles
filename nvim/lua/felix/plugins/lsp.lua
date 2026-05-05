@@ -1,6 +1,8 @@
 local lsp = require("lsp-zero")
 
 local cmp = require("cmp")
+local mason = require("mason")
+mason.setup()
 local keymap = vim.keymap -- for conciseness
 
 
