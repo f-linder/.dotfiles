@@ -71,7 +71,7 @@ return packer.startup(function(use)
 
     -- fuzzy finder w/ telescope
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+    use({ "nvim-telescope/telescope.nvim", branch = "master" }) -- fuzzy finder
 
     -- everything lsp
     use {
@@ -95,7 +95,7 @@ return packer.startup(function(use)
     }
 
     -- treesitter
-    use({ "nvim-treesitter/nvim-treesitter", tag = "v0.10.0", lazy = false, build = ":TSUpdate" })
+    use({ "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false, build = ":TSUpdate" })
 
     -- undotree
     use("mbbill/undotree")

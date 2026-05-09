@@ -1,13 +1,9 @@
-local lsp = require("lsp-zero")
-
-local cmp = require("cmp")
-local mason = require("mason")
-mason.setup()
-local keymap = vim.keymap -- for conciseness
-
-
 vim.opt.completeopt = "menu,menuone,preview,noinsert"
 
+local lsp = require("lsp-zero")
+lsp.extend_lspconfig()
+
+local keymap = vim.keymap -- for conciseness
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
     -- set keybinds
@@ -17,16 +13,34 @@ lsp.on_attach(function(client, bufnr)
     keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts) -- smart rename
     keymap.set("n", "<leader>d", function() vim.diagnostic.open_float() end, opts) -- show  diagnostics for line
     keymap.set("n", "<leader>dk", function() vim.diagnostic.goto_prev() end, opts) -- jump to previous diagnostic in buffer
-    keymap.set("n", "<leader>dj", function() vim.diagnostic.goto_next() end, opts) -- jump to next diagnostic in buffer
+    keymap.set("n", "<leader>dj", function() vim.diagnostic.jump() end, opts) -- jump to next diagnostic in buffer
     keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts) -- show documentation for what is under cursor
 end)
-
 lsp.setup()
+
+
+local mason = require("mason")
+mason.setup({})
+
+
+local mason_lsp = require("mason-lspconfig")
+mason_lsp.setup({
+  -- Put the servers you want Mason to auto-install here
+  ensure_installed = { 'basedpyright', 'ruff' }, 
+  handlers = {
+    -- This default handler automatically configures every LSP you install
+    lsp.default_setup,
+  },
+})
+
 
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
     return
 end
+
+
+local cmp = require("cmp")
 
 cmp.setup({
     snippet = {
